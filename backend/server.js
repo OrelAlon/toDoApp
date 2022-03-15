@@ -10,4 +10,5 @@ app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/tasks", require("./routes/taskRoutes"));
 
+app.use(errorHandler);
 app.listen(port, () => console.log(`server on ${port}`));
