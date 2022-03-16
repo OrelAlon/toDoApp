@@ -36,10 +36,8 @@ const updateTasks = asyncHandler(async (req, res) => {
     throw new Error("Task not found");
   }
 
-  const user = await User.findById(req.user.id);
-
   //check fot user
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
@@ -58,21 +56,19 @@ const updateTasks = asyncHandler(async (req, res) => {
 // update tasks
 // route ==> DELETE /api/tasks/:id
 const deleteTasks = asyncHandler(async (req, res) => {
-  const task = await Task.findById(req.params.id);
-  if (!task) {
+  if (!req.task) {
     res.status(400);
     throw new Error("Task not found");
   }
-  const user = await User.findById(req.user.id);
 
   //check fot user
-  if (!user) {
+  if (!req.user) {
     res.status(401);
     throw new Error("User not found");
   }
 
   // make sure the logged user match the task user
-  if (task.user.toString() !== user.id) {
+  if (task.user.toString() !== req.user.id) {
     res.status(401);
     throw new Error("User not authorized");
   }
