@@ -1,5 +1,13 @@
+import { useState } from "react";
+
 function Dashboard() {
-  return <div>Dashboard</div>;
+  const [listOfUsers, setListOfUsers] = useState([{ user: "orel" }]);
+
+  return (
+    <div>
+      <div></div>
+    </div>
+  );
 }
 
 export default Dashboard;
