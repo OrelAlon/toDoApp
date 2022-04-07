@@ -1,3 +1,0 @@
-// npm run dev from the backend
-
-// To Do App with mern-stack

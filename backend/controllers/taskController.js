@@ -5,6 +5,7 @@ const User = require("../models/userModel");
 
 // get tasks
 // route ==> GET /api/tasks
+// privte
 const getTasks = asyncHandler(async (req, res) => {
   const tasks = await Task.find({ user: req.user.id });
 
@@ -13,6 +14,7 @@ const getTasks = asyncHandler(async (req, res) => {
 
 // post task
 // route ==> GET /api/tasks
+// privte
 const postTask = asyncHandler(async (req, res) => {
   if (!req.body.text) {
     res.status(400);
@@ -29,6 +31,7 @@ const postTask = asyncHandler(async (req, res) => {
 
 // update tasks
 // route ==> PUT /api/tasks/:id
+// privte
 const updateTasks = asyncHandler(async (req, res) => {
   const task = await Task.findById(req.params.id);
   if (!task) {
@@ -55,6 +58,7 @@ const updateTasks = asyncHandler(async (req, res) => {
 
 // update tasks
 // route ==> DELETE /api/tasks/:id
+// privte
 const deleteTasks = asyncHandler(async (req, res) => {
   if (!req.task) {
     res.status(400);
